@@ -1,0 +1,11 @@
+os:
+  name: test
+  version: 1
+  configurations:
+    mason-management:
+      disable_status_bar: true
+      hidden_packages:
+        - test.com.123
+      config_global_proxy_type: asfdaf
+    
+    

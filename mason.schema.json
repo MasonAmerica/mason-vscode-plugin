@@ -1,0 +1,75 @@
+{
+	"$id": "https://example.com/mason.schema.json",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Mason Project",
+	"description": "Mason Project https://docs.bymason.com/project-create/",
+	"type": "object",
+	"properties": {
+        "os": {
+            "title": "This is the root of the project",
+            "type": "object",
+            "description": "This is the root description",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Mason project name/identifier"
+                },
+                "version": {
+                    "type": "number",
+                    "description": "Mason project version"
+                },
+                "configurations": {
+                    "type": "object",
+                    "description": "Mason configurations <include docs here>",
+                    "properties": {
+                        "mason-management": {
+                            "title": "<mason-management title>",
+                            "description": "<mason-managment discription>",
+                            "type": "object",
+                            "properties": {
+                                "disable_status_bar": {
+                                    "type": "boolean",
+                                    "description": "Flag indicating whether or not to disable the status bar"
+                                },
+                                "hidden_packages": {
+                                    "type": "array",
+                                    "description": "When a package is hidden it is unavailable for use, but the data and actual package file remain.",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "config_global_proxy_type": {
+                                    "type": "string",
+                                    "description": "Sets a network-independent global HTTP proxy of a given type. This is usefulfor general internal/corporation-wide filtering scenarios. On a private network where the proxy is NOT accessible for any reason, this could break HTTP on adevice. This value is ignored if config_global_proxy is not set.Allowed values are:'direct' - Specifies a direct proxy via host and port. It requires specification of config_global_proxy and parses the latter as host[:port]'pac' - This is used to specify proxy auto-config (PAC). It requires specification of config_global_proxy and parses the latter as a URL to a PAC file.'none' - This is the same as not specifying this configuration at all. The value of config_global_proxy, if set, is ignored. This is the default.NOTE: Typical HTTP proxies are generally network dependent. This setting is noton a per-network basis, but rather has a global effect.NOTE 2: This proxy is only a recommendation and it is possible that some apps,especially native apps or those that use custom HTTP client implementationswill ignore it.@see https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setRecommendedGlobalProxy(android.content.ComponentName,%20android.net.ProxyInfo)@see https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_(PAC)_file"
+                                },
+                                "lock_task_packages": {
+                                    "type": "array",
+                                    "description": "A white-list of package names of applications that can be pinned to the screenvia context.setLockTaskMode() or via lockTaskMode in the manifest. For use bycustomers.",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "mason-app-updater": {
+                            "title": "<mason-app-updater title>",
+                            "description": "<mason-app-updater description>"
+                        },
+                        "mason-fota": {
+                            "title": "<mason-fota title>",
+                            "description": "<mason-fota description>"
+                        },
+                        "mason-core": {},
+                        "settings": {},
+                        "systemui": {},
+                        "phone": {},
+                        "cellbroadcastreceiver": {},
+                        "android": {}
+                    }
+                }
+            },
+            "required": ["name", "version"]
+        }
+    },
+    "required": ["os"]
+}
