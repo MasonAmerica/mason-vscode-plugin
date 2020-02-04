@@ -1,6 +1,6 @@
 {
     "yaml.schemas": {
         "./address.schema.json": ["/address/*"],
-        "./mason.schema.json": ["/mason/*"],
+        "./v1schema-json-schema-25.json": ["/mason/*"],
     }
 }
